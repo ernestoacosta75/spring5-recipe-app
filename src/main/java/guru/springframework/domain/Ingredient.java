@@ -21,8 +21,8 @@ public class Ingredient {
     @ManyToOne
     private Recipe recipe;
 
-    //TODO add UnitOfMeasure
-    //private UnitOfMeasure uom;
+    @OneToOne
+    private UnitOfMeasure uom;
 
     public Long getId() {
         return id;
@@ -54,5 +54,13 @@ public class Ingredient {
 
     public void setRecipe(Recipe recipe) {
         this.recipe = recipe;
+    }
+
+    public UnitOfMeasure getUom() {
+        return uom;
+    }
+
+    public void setUom(UnitOfMeasure uom) {
+        this.uom = uom;
     }
 }
