@@ -18,6 +18,7 @@ public class IndexController {
     private CategoryRepository categoryRepository;
     private UnitOfMeasureRepository unitOfMeasureRepository;
 
+
     public IndexController(CategoryRepository categoryRepository, UnitOfMeasureRepository unitOfMeasureRepository) {
         this.categoryRepository = categoryRepository;
         this.unitOfMeasureRepository = unitOfMeasureRepository;
@@ -33,4 +34,5 @@ public class IndexController {
 
         return "index";
     }
+
 }
