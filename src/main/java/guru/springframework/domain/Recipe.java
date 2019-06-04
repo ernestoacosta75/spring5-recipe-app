@@ -27,6 +27,9 @@ public class Recipe {
     private Difficulty difficulty;
 
     @Lob
+    private String directions;
+
+    @Lob
     private Byte [] image;
 
     @OneToOne(cascade = CascadeType.ALL)
@@ -95,6 +98,14 @@ public class Recipe {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getDirections() {
+        return directions;
+    }
+
+    public void setDirections(String directions) {
+        this.directions = directions;
     }
 
     public Byte[] getImage() {

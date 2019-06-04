@@ -6,6 +6,33 @@
 </head>
 <body>
 <h1>My Recipes!</h1>
+<!--/*@thymesVar id = "owner" type = "guru.springframework.domain.Recipe"*/-->
+<h2 th:text="'List of Recipes'">Recipes List</h2>
 
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th style="width: 150px;">Id</th>
+        <th style="width: 150px;">Prep. Time</th>
+        <th style="width: 150px;">Cook Time</th>
+        <th style="width: 150px;">Servings</th>
+        <th style="width: 150px;">Description</th>
+        <th style="width: 150px;">Difficulty</th>
+        <th style="width: 150px;">Notes</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="recipe : ${recipes}">
+        <td th:text="${recipe?.id}">1</td>
+        <td th:text="${recipe?.prepTime}">Jon</td>
+        <td th:text="${recipe?.cookTime}">Snow</td>
+        <td th:text="${recipe?.servings}">1</td>
+        <td th:text="${recipe?.description}">Jon</td>
+        <td th:text="${recipe?.difficulty}">Snow</td>
+        <td th:text="${recipe?.notes.getRecipeNotes()}">Snow</td>
+    </tr>
+    </tbody>
+
+</table>
 </body>
 </html>
