@@ -130,6 +130,19 @@ public class Recipe {
 
     public void setNotes(Notes notes) {
         this.notes = notes;
+        notes.setRecipe(this);  //added
+    }
+
+    /**
+     * Added for better performance.
+     * @param ingredient
+     * @return
+     */
+    public Recipe addIngredient(Ingredient ingredient) {
+        ingredient.setRecipe(this);
+        this.ingredients.add(ingredient);
+
+        return this;
     }
 
     public Set<Ingredient> getIngredients() {
