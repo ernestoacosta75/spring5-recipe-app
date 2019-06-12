@@ -1,5 +1,7 @@
 package guru.springframework.domain;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -9,6 +11,7 @@ import java.util.Set;
  *
  * @author Rodriguez Acosta Ernesto Antonio
  */
+@Data
 @Entity
 public class Recipe {
 
@@ -124,10 +127,6 @@ public class Recipe {
         this.difficulty = difficulty;
     }
 
-    public Notes getNotes() {
-        return notes;
-    }
-
     public void setNotes(Notes notes) {
         this.notes = notes;
         notes.setRecipe(this);  //added
@@ -143,22 +142,6 @@ public class Recipe {
         this.ingredients.add(ingredient);
 
         return this;
-    }
-
-    public Set<Ingredient> getIngredients() {
-        return ingredients;
-    }
-
-    public void setIngredients(Set<Ingredient> ingredients) {
-        this.ingredients = ingredients;
-    }
-
-    public Set<Category> getCategories() {
-        return categories;
-    }
-
-    public void setCategories(Set<Category> categories) {
-        this.categories = categories;
     }
 }
 
