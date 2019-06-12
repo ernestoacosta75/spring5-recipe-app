@@ -33,6 +33,7 @@ public class Recipe {
     @Enumerated(EnumType.STRING)
     private Difficulty difficulty;
 
+
     @Lob
     private String directions;
 

@@ -28,8 +28,7 @@ public class Category {
     @ManyToMany(mappedBy = "categories")
     private Set<Recipe> recipes = new HashSet<Recipe>();
 
-    public Category() {
-    }
+    public Category() { }
 
     protected boolean canEqual(final Object other) {
         return other instanceof Category;

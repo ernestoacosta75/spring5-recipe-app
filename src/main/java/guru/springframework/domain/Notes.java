@@ -23,8 +23,7 @@ public class Notes {
     @OneToOne
     private Recipe recipe;
 
-    public Notes() {
-    }
+    public Notes() { }
 
     protected boolean canEqual(final Object other) {
         return other instanceof Notes;
