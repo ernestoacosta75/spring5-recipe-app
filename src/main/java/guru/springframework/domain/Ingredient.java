@@ -2,7 +2,6 @@ package guru.springframework.domain;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.ToString;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -13,8 +12,7 @@ import java.math.BigDecimal;
  * @author Rodriguez Acosta Ernesto Antonio
  */
 @Data
-@EqualsAndHashCode(exclude = {"recipe", "uom"})
-@ToString(exclude = {"recipe", "uom"})
+@EqualsAndHashCode(exclude = {"recipe"})
 @Entity
 public class Ingredient {
 

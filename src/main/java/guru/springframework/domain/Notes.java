@@ -1,6 +1,7 @@
 package guru.springframework.domain;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
 
@@ -10,6 +11,7 @@ import javax.persistence.*;
  * @author Rodriguez Acosta Ernesto Antonio
  */
 @Data
+@EqualsAndHashCode(exclude = {"recipe"})
 @Entity
 public class Notes {
 
