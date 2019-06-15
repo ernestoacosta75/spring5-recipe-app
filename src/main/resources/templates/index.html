@@ -3,36 +3,46 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Recipe Home</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
 <body>
-<h1>My Recipes!</h1>
-<!--/*@thymesVar id = "owner" type = "guru.springframework.domain.Recipe"*/-->
-<h2 th:text="'List of Recipes'">Recipes List</h2>
-
-<table class="table table-striped">
-    <thead>
-    <tr>
-        <th style="width: 150px;">Id</th>
-        <th style="width: 150px;">Prep. Time</th>
-        <th style="width: 150px;">Cook Time</th>
-        <th style="width: 150px;">Servings</th>
-        <th style="width: 150px;">Description</th>
-        <th style="width: 150px;">Difficulty</th>
-        <th style="width: 150px;">Notes</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="recipe : ${recipes}">
-        <td th:text="${recipe?.id}">1</td>
-        <td th:text="${recipe?.prepTime}">Jon</td>
-        <td th:text="${recipe?.cookTime}">Snow</td>
-        <td th:text="${recipe?.servings}">1</td>
-        <td th:text="${recipe?.description}">Jon</td>
-        <td th:text="${recipe?.difficulty}">Snow</td>
-        <td th:text="${recipe?.notes.getRecipeNotes()}">Snow</td>
-    </tr>
-    </tbody>
-
-</table>
+    <div class="container h-100 mt-5">
+        <div class="row h-100 justify-content-center align-items-center">
+            <div class="col-md-6 col-md-offset-3">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h1 class="card-title">My Recipes!</h1>
+                        <!--/*@thymesVar id = "owner" type = "guru.springframework.domain.Recipe"*/-->
+                    </div>
+                    <div class="panel-body">
+                        <div class="table-responsive" th:if="${not #lists.isEmpty(recipes)}">
+                            <table class="table table-hover">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Description</th>
+                                    </tr>
+                                </thead>
+                                <tr th:remove="all">
+                                    <td th:text="${recipe.id}">123</td>
+                                    <td th:text="${recipe.description}">Tasty Goodness</td>
+                                </tr>
+                                <tr th:remove="all">
+                                    <td th:text="${recipe.id}">123</td>
+                                    <td th:text="${recipe.description}">Tasty Goodness 2</td>
+                                </tr>
+                                <tr th:each="recipe : ${recipes}">
+                                    <td th:text="${recipe.id}">123</td>
+                                    <td th:text="${recipe.description}">Tasty Goodness 3</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
