@@ -14,7 +14,7 @@ jobs:
       # documented at https://circleci.com/docs/2.0/circleci-images/
       # - image: circleci/postgres:9.4
 
-    working_directory: ~/spring5-recipe-app/tree/maven-failsafe
+    working_directory: ~/spring5-recipe-app
 
     environment:
       # Customize the JVM maximum heap limit
@@ -27,7 +27,7 @@ jobs:
       - restore_cache:
           keys:
             #- v1-dependencies-{{ checksum "pom.xml" }}
-            - spring5-recipe-app/tree/maven-failsafe-{{ checksum "pom.xml" }}
+            - spring5-recipe-app-{{ checksum "pom.xml" }}
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
@@ -37,7 +37,7 @@ jobs:
           paths:
             - ~/.m2
           #key: v1-dependencies-{{ checksum "pom.xml" }}
-          key: spring5-recipe-app/tree/maven-failsafe-{{ checksum "pom.xml" }}
+          key: spring5-recipe-app-{{ checksum "pom.xml" }}
 
       # run tests!
       - run: mvn integration-test
