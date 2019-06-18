@@ -15,7 +15,7 @@ import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.*;
 
 /**
- * This class is used to test the <code>IndexController</code> class.
+ * This class is used for the <code>IndexController</code> class Unit Test.
  *
  * @author Ernesto Antonio Rodriguez Acosta
  */
