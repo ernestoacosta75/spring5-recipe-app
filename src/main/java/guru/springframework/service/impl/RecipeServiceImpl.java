@@ -2,11 +2,12 @@ package guru.springframework.service.impl;
 
 import guru.springframework.domain.Recipe;
 import guru.springframework.repositories.RecipeRepository;
-import guru.springframework.services.RecipeService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 
 /**
@@ -16,17 +17,18 @@ import java.util.Set;
  * @author  Ernesto A. Rodriguez Acosta
  */
 @Slf4j
+@Primary
 @Service
-public class RecipeServiceJpaImpl implements RecipeService {
-
+public class RecipeServiceImpl implements guru.springframework.services.RecipeService {
     private final RecipeRepository recipeRepository;
 
-    public RecipeServiceJpaImpl(RecipeRepository recipeRepository) {
+    public RecipeServiceImpl(RecipeRepository recipeRepository) {
         this.recipeRepository = recipeRepository;
     }
 
+    @Override
     public Set<Recipe> findAll() {
-        log.debug("I am in the Recipe JPA Service implementation");
+        log.debug("I'm in the service");
 
         Set<Recipe> recipeSet = new HashSet<Recipe>();
 
@@ -37,6 +39,13 @@ public class RecipeServiceJpaImpl implements RecipeService {
 
     @Override
     public Recipe findById(Long id) {
-        return null;
+
+        Optional<Recipe> recipeOptional = recipeRepository.findById(id);
+
+        if(!recipeOptional.isPresent()) {
+            throw new RuntimeException("Recipe Not Found!");
+        }
+
+        return recipeOptional.get();
     }
 }

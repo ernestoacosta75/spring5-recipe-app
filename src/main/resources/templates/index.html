@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
     <title>Recipe Home</title>
@@ -22,7 +22,6 @@
                 <div class="panel panel-primary">
                     <div class="panel-heading">
                         <h1 class="panel-title">My Recipes!</h1>
-                        <!--/*@thymesVar id = "owner" type = "guru.springframework.domain.Recipe"*/-->
                     </div>
                     <div class="panel-body">
                         <div class="table-responsive" th:if="${not #lists.isEmpty(recipes)}">
@@ -31,19 +30,24 @@
                                     <tr>
                                         <th>ID</th>
                                         <th>Description</th>
+                                        <th>View</th>
                                     </tr>
                                 </thead>
                                 <tr th:remove="all">
                                     <td th:text="${recipe.id}">123</td>
                                     <td th:text="${recipe.description}">Tasty Goodness</td>
+                                    <td><a href="#">View</a></td>
                                 </tr>
                                 <tr th:remove="all">
                                     <td th:text="${recipe.id}">123</td>
                                     <td th:text="${recipe.description}">Tasty Goodness 2</td>
+                                    <td><a href="#">View</a></td>
                                 </tr>
                                 <tr th:each="recipe : ${recipes}">
+                                    <!--/*@thymesVar id = "owner" type = "guru.springframework.domain.Recipe"*/-->
                                     <td th:text="${recipe.id}">123</td>
                                     <td th:text="${recipe.description}">Tasty Goodness 3</td>
+                                    <td><a href="#" th:href="@{'/recipes/show/' + ${recipe.id}}">View</a></td>
                                 </tr>
                             </table>
                         </div>
